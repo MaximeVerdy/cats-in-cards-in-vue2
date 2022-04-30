@@ -1,28 +1,78 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+
+    <dialog class="modal" id="modal">
+      <p>{{ fact }}</p>
+      <button class="button close-button" @click="closeModal">close</button>
+    </dialog>
+
+    <h1>CATS IN CARDS IN VUE.JS</h1>
+
+    <div class="wrapper">
+      <div 
+      v-for="cat of cats" 
+      :key="cat.breed" 
+      @click="randomFact">
+        <CatCard
+          :img="require('./assets/shadow-cat.jpg')"
+          :title="cat.breed"
+          :coat="cat.coat"
+          :pattern="cat.pattern"
+        />
+      </div>
+    </div>
+    
   </div>
 </template>
 
+
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import CatCard from "./components/CatCard.vue";
 
 export default {
-  name: 'App',
+
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    CatCard,
+  },
+
+  data() {
+    return {
+      cats: [],
+      fact: "",
+    };
+  },
+
+  async created() {
+    try {
+      const data = await fetch("https://catfact.ninja/breeds");
+      const body = await data.json();
+      this.cats = body.data;
+    } catch (e) {
+      console.error(e);
+    }
+  },
+
+  methods: {
+    randomFact: async function () {
+      try {
+        const data = await fetch("https://catfact.ninja/fact");
+        const body = await data.json();
+        this.fact = body.fact;
+      } catch (e) {
+        console.error(e);
+      }
+      document.querySelector("#modal").showModal();
+    },
+    closeModal: function () {
+      document.querySelector("#modal").close();
+    },
+  },
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
+<style lang="scss">
+@import "@/styles/app.scss";
+@import "@/styles/modal.scss";
 </style>
