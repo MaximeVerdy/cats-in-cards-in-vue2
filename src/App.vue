@@ -12,7 +12,7 @@
       <div 
       v-for="cat of cats" 
       :key="cat.breed" 
-      @click="randomFact">
+      @click="seeFactInModal">
         <CatCard
           :img="catPic"
           :title="cat.breed"
@@ -56,7 +56,7 @@ export default {
   },
 
   methods: {
-    randomFact: async function () {
+    seeFactInModal: async function () {
       try {
         const data = await fetch("https://catfact.ninja/fact");
         const body = await data.json();
