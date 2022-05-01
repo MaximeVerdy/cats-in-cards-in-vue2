@@ -1,4 +1,4 @@
-### Application Vue2/SASS donnant des informations sur les chats
+### Application Vue2.js/SASS donnant des informations sur les chats
 
 * Les informations sont fetchées sur https://catfact.ninja
 * Le style et le responsive sont fait en sass
