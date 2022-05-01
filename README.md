@@ -1,8 +1,8 @@
 ### Application Vue2/SASS donnant des informations sur les chats
 
-* Les informations sont fetchées sur Cat Fact API
+* Les informations sont fetchées sur https://catfact.ninja
 * Le style et le responsive sont fait en sass
-     * Quand la souris survole une card, celle-ci est zoomée
+     * Quand la souris survole une card, celle-ci est agrandie
      * Le nombre de cards par ligne s'adapte à la largeur de l'écran
 * La modal est faite en sass
      * En cliquant sur n'importe quelle card, une information aléatoire sur les chats apparait dans une modal
