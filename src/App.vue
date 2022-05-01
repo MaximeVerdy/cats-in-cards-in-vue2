@@ -6,7 +6,7 @@
       <button class="button close-button" @click="closeModal">close</button>
     </dialog>
 
-    <h1>CATS IN CARDS IN VUE.JS</h1>
+    <h1>CATS IN CARDS</h1>
 
     <div class="wrapper">
       <div 
@@ -14,7 +14,7 @@
       :key="cat.breed" 
       @click="randomFact">
         <CatCard
-          :img="require('./assets/shadow-cat.jpg')"
+          :img="catPic"
           :title="cat.breed"
           :coat="cat.coat"
           :pattern="cat.pattern"
@@ -28,6 +28,7 @@
 
 <script>
 import CatCard from "./components/CatCard.vue";
+import catPic from "./assets/shadow-cat.jpg"
 
 export default {
 
@@ -40,6 +41,7 @@ export default {
     return {
       cats: [],
       fact: "",
+      catPic: catPic
     };
   },
 

@@ -1,24 +1,10 @@
-# cats-in-cards-in-vue
+### Application Vue2/SASS donnant des informations sur les chats
 
-## Project setup
-```
-yarn install
-```
+* Les informations sont fetchées sur Cat Fact API
+* Le style et le responsive sont fait en sass
+     * Quand la souris survole une card, celle-ci est zoomée
+     * Le nombre de cards par ligne s'adapte à la largeur de l'écran
+* La modal est faite en sass
+     * En cliquant sur n'importe quelle card, une information aléatoire sur les chats apparait dans une modal
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+![screenshot](screenshot.gif)
