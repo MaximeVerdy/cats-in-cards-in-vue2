@@ -3,7 +3,7 @@
 
     <dialog class="modal" id="modal">
       <p>{{ fact }}</p>
-      <button class="button close-button" @click="closeModal">close</button>
+      <button class="button" @click="closeModal">close</button>
     </dialog>
 
     <h1>CATS IN CARDS</h1>
